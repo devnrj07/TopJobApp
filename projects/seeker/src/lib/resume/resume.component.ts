@@ -25,6 +25,16 @@ thirdFormGroup: FormGroup;
 isOptional = false;
 
 
+// basic detail form
+
+userDetailsForm = this._formBuilder.group({
+  firstname: ['', [Validators.required, Validators.pattern('^([a-z]|[A-Z]){4,8}$')] ],
+  birthday: ['', Validators.required],
+  gender: ['', Validators.required],
+    phone: ['', Validators.required],
+    email: ['', [  Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]]
+});
+
 // Crud table
 displayedColumns = ['id', 'title', 'state', 'url', 'created_at', 'updated_at', 'actions'];
 exampleDatabase: SeekerService| null;
@@ -43,6 +53,16 @@ skillCtrl = new FormControl();
 filteredSkills: Observable<string[]>;
 skills: string[] = ['Lemon'];
 allSkills: string[] = ['A', 'B', 'C', 'D', 'E'];
+
+// experience
+
+allItems = [
+  { 'itemName':'xyz', 'itemImageUrl': "abc", 'itemPrice':'12$'},
+  { 'itemName':'12', 'itemImageUrl':'abc', 'itemPrice':'12$'},
+  { 'itemName': "z", 'itemImageUrl':'abc', 'itemPrice':'12$'},
+ ];
+
+
 
 @ViewChild('fruitInput') fruitInput: ElementRef<HTMLInputElement>;
 @ViewChild('auto') matAutocomplete: MatAutocomplete;

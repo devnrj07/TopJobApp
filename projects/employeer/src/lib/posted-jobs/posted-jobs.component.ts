@@ -18,28 +18,28 @@ import { JobApplicationService } from '../services/job-application.service';
   ],
 })
 export class PostedJobsComponent implements OnInit {
-
-  empId:String;
-  jobApplications: JobApplication[];
-  dataSource:JobApplication[]; 
-  columnsToDisplay=['jobId','noOfOpenings','jobProfile','location','companyName','noOfApplicants'];
-  expandedElement:JobApplication;
   constructor(private FB: FormBuilder, private router: Router, private service: JobApplicationService, private route: ActivatedRoute) { }
 
- 
+  empId: String;
+  jobApplications: JobApplication[];
+  dataSource: JobApplication[];
+  columnsToDisplay = ['jobId', 'noOfOpenings', 'jobProfile', 'location', 'companyName', 'noOfApplicants'];
+  expandedElement: JobApplication;
+  job: JobApplication = new JobApplication();
+
+  id: String;
+
+
   ngOnInit() {
-    this.empId=this.route.snapshot.paramMap.get("empId");
+    this.empId = this.route.snapshot.paramMap.get('empId');
     this.service.getJobApplication(this.empId).subscribe(data => {
 
-    this.jobApplications = data;
+      this.jobApplications = data;
       this.dataSource = data;
       console.log(this.dataSource);
     });
 
   }
-  job: JobApplication = new JobApplication();
-
-  id: String;
 }
 
 

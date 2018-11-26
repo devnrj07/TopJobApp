@@ -3,7 +3,7 @@
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Basic Info</ng-template>
 
-      <mat-card>
+      <mat-card id="basic">
         <mat-card-title>
         </mat-card-title>
         <mat-card-header align="end">
@@ -11,15 +11,51 @@
 
             <div class="col-2">
               <div class="user-details-container">
-                <img class="user-image" src="https://randomuser.me/api/portraits/lego/3.jpg" />
+                <img class="user-image" src="https://randomuser.me/api/portraits/lego/3.jpg" style="height: 100px;" />
 
               </div>
             </div>
           </div>
-
+              
         </mat-card-header>
-      </mat-card>
+        <mat-card-content>
+          <form [formGroup]="userDetailsForm" >
+            <mat-form-field class="full-width">
+              <input matInput placeholder="First Name" formControlName="firstname">
+              
+            </mat-form-field>
 
+            <mat-form-field class="full-width">
+              <input matInput [matDatepicker]="picker" placeholder="Your birthday" formControlName="birthday" required>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+             
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Phone" type="number" formControlName="phone" required>
+              <mat-hint align="start"><strong>Mobile:</strong> {{ userDetailsForm.value.phone}}</mat-hint>
+              <mat-hint align="end"><strong>Fixed:</strong> {{ userDetailsForm.value.phone}}</mat-hint>
+             
+            </mat-form-field>
+
+            <div class="">
+              <mat-radio-group placeholder="Gender" class="radio-group" formControlName="gender">
+                   <mat-radio-button class="full width" *ngFor="let x of genders" [value]="x">
+                     {{x}}
+                   </mat-radio-button>
+                   </mat-radio-group>
+                 
+             </div>
+
+             <mat-form-field class="full-width">
+              <input matInput type="email" placeholder="Email" formControlName="email" required>
+              
+            </mat-form-field>
+           </form> 
+
+        </mat-card-content>
+      </mat-card>
 
 
 
@@ -175,7 +211,22 @@
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Experience Details</ng-template>
 
+      <mat-card *ngFor="let item of allItems" class="flex-lg-20" >
 
+        <mat-card-header class="flex-lg-20">
+          <h2>{{item.itemName}}</h2>
+          <br>
+        </mat-card-header>
+        <mat-card-content class="flex-lg-20">
+          <h2>   </h2>
+          <br>{{item.itemImageUrl}}
+        </mat-card-content>
+      
+        <mat-card-content align="bottom" class="flex-lg-20">
+          <div>Rs. {{item.itemPrice}}</div>
+      
+        </mat-card-content>
+         </mat-card>
          
 
 

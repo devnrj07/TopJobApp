@@ -15,7 +15,7 @@ import { Component, OnInit } from '@angular/core';
 </nav>
 <router-outlet></router-outlet>
   `,
-  styles: [`.mat-tab-nav-bar { margin: 2em 20em;width: 25em; margin-bottom: 2em;}`]
+  styles: [`.mat-tab-nav-bar { margin: 5em 20em;width: 25em;}`]
 })
 export class SloginComponent implements OnInit {
 

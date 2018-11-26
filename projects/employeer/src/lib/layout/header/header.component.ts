@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
     this.empId=this.route.snapshot.paramMap.get('empId')
   }
   navigateNewForm(){
-    this.router.navigate(['/newForm',this.empId]);
+    this.router.navigate(['/newjob',this.empId]);
   }
   navigateJobs(){
     this.router.navigate(['/jobs',this.empId]);

@@ -170,7 +170,7 @@
     </mat-card-content>
 
     <mat-card-actions align="end">
-        <button class="submit-btn" color="primary" mat-raised-button type="submit" (click)="onSubmit(userDetailsForm.value)">
+        <button class="submit-btn" color="primary" mat-raised-button [disabled]=!userDetailsForm.valid type="submit" (click)="onSubmit(userDetailsForm.value)">
           Submit
         </button>
     </mat-card-actions>

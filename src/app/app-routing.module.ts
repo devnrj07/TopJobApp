@@ -51,6 +51,7 @@ const routes: Routes = [
       { path: 'newjob', component: NewJobComponent },
       { path: 'jobs', component: PostedJobsComponent },
       { path: 'shortlist', component: ShortlistedCandidatesComponent },
+     
       { path: '**', component: PostedJobsComponent }
     ]
   },
